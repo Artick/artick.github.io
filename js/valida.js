@@ -2,8 +2,14 @@ $(document).ready(function() {
     //do jQuery stuff when DOM is ready
     $("#quizz1").css("display", "none");
     $("#quizz2").css("display", "none");
+    var alto= $( window ).height();
+    $("#slider").css("height", alto);
 });
-    
+  
+function iniciar () {
+      $("#quizz1").css("display", "block");
+      $("#q1").css("display", "block");
+  }  
 
 
 $(".rslides").responsiveSlides({
@@ -25,187 +31,94 @@ $(".rslides").responsiveSlides({
   after: function(){}     // Function: After callback
 });
 
+/*function nxtQ(){
+    var q = 0;
+    var temp="";
+    for (var i=0; i<24; i++){
+        temp = ("#q"+(i+1));
+        $(temp).css("display", "none");
+    }
+}*/
 
+
+//Bloque del primer cuestionario
+var q = 0;
+var ok = 0;
+
+function nxtQ(){
+    var temp="";
+    temp = ("#q"+(q+1));
+    tempp = ("#q"+(q+2));
+    valida();
+    if (ok==1){
+        $(temp).css("display", "none");
+        $(tempp).css("display", "block");
+        q++;
+        if (q>=24)
+        {
+            //terminado el cuestionario
+            $("#nxtbtn1").css("display", "none");
+            $("#enviaSuma1").css("display","block");
+            q=0;
+        }
+    }
+    else{
+        alert('Seleccione una opcion para continuar');
+    }
+    ok=0;
+}
+
+function valida(){
+    var ckbox = document.getElementsByName(q+1);
+        for (var i=0; i < ckbox.length; i++){
+            if(ckbox[i].checked == true){
+            ok = 1;
+            }
+}
+}
+
+//termina bloque del primer cuestionario
+
+
+
+//Bloque Segunto Cuestionario
+var q1 = 0;
+var ok1 = 0;
+
+function nxtQ2(){
+    var temp1="";
+    temp1 = ("#q"+(q1+1)+"a");
+    valida1();
+    if (ok1==1){
+        $(temp1).css("display", "none");
+        q1++;
+        if (q1>=24)
+        {
+            // Teminado el cuestionario
+            q1=0;
+        }
+    }
+    else{
+        alert('Seleccione una opcion para continuar');
+    }
+    ok1=0;
+}
+
+function valida1(){
+    var ckbox = document.getElementsByName("v"+(q1+1));
+        for (var i=0; i < ckbox.length; i++){
+            if(ckbox[i].checked == true){
+            ok1 = 1;
+            }
+}
+}
+
+
+
+//bloque segundo cuestrionario
 
 
         function enviarSuma(){
-
-        var ok = 0;
-        var ckbox = document.getElementsByName('1');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('2');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('3');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('4');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('5');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('6');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('7');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('8');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('9');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('10');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('11');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('12');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('13');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('14');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('15');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('16');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('17');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('18');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('19');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('20');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('21');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('22');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('23');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('24');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        
-        if(ok == 0){
-        alert('indique al menos una opcion en todas las preguntas');
-        return false;
-            }
-        
-
-
         var v1 = parseInt($('input[name="1"]:checked').val());
         var v2 = parseInt($('input[name="2"]:checked').val());
         var v3 = parseInt($('input[name="3"]:checked').val());
@@ -236,186 +149,11 @@ $(".rslides").responsiveSlides({
         regulacion = (v19+v20+v21+v22+v23+v24);
         
             alert("Precepcion: "+ percepcion + "\nComprencion: "+ comprencion + "\nRegulacion: "+ regulacion);
+            $("#quizz1").css("display", "none");
+            $("#slider").css("display", "block");
         }
 
 function enviarSuma2(){
-
-        var ok = 0;
-        var ckbox = document.getElementsByName('v1');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v2');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v3');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v4');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v5');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v6');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v7');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v8');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v9');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v10');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v11');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v12');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v13');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v14');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v15');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v16');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v17');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v18');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v19');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v20');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v21');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v22');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v23');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        ok = 0;
-        ckbox = document.getElementsByName('v24');
-        for (var i=0; i < ckbox.length; i++){
-            if(ckbox[i].checked == true){
-            ok = 1;
-            }
-        }
-        
-        if(ok == 0){
-        alert('indique al menos una opcion en todas las preguntas');
-        return false;
-            }
-        
-
-
         var vv1 = parseInt($('input[name="v1"]:checked').val());
         var vv2 = parseInt($('input[name="v2"]:checked').val());
         var vv3 = parseInt($('input[name="v3"]:checked').val());
@@ -447,6 +185,3 @@ function enviarSuma2(){
         
             alert("Precepcion: "+ percepcion2 + "\nComprencion: "+ comprencion2 + "\nRegulacion: "+ regulacion2);
         }
-
-
-
