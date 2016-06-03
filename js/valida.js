@@ -18,11 +18,11 @@ function iniciar () {
 
 function fotos() {
     //setTimeout(visible2(), 28000);
-    var tmp = 200;
+    var tmp = 400;
     for(i =0; i<=241; i++){
     setTimeout("foto"+i+"();", tmp);
     console.log("entre "+i);
-    tmp+=200;
+    tmp+=400;
     }
     
 }
