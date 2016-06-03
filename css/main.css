@@ -129,7 +129,7 @@ textarea {
 
 #slider {
     background : #000000 url("../img/Animals_002_v.jpg") no-repeat bottom left;
-    background-size: cover;
+    background-size: cover !important;
     min-height:100%;
     height: auto;
 }

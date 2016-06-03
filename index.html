@@ -30,6 +30,17 @@
 
 
     <section id="card" class="col-md-6">
+        <section id="iniciando">
+            <legend>Bienvenido</legend>
+            <p>Este es una pequeña prueba en la que no existen las respuestas correctas</p>
+            <p>te pido de favor contestar honestamente y no pensar las respuestas demasiado</p>
+            <p>mira las imagenes atentamente y contesta lo que se te pide</p>
+            <p>Teniendo todo esto en cuenta COMENCEMOS!</p>
+            <button onclick="iniciar()" type="button" class="btn btn-raised btn-primary" >Iniciar</button>
+
+        </section>
+    
+
     <section id="quizz1" class="well bs-component">
         <form class="form-group form-horizontal ">
         <fieldset>
@@ -252,7 +263,7 @@
         </div>
 
         <button onclick="nxtQ()" type="button" class="btn btn-raised btn-primary" id="nxtbtn1">enviar</button>
-        <button onclick="enviarSuma()" type="button" class="btn btn-raised btn-primary" id="enviaSuma1" style="display: none">enviar</button>
+        <button onclick="enviarSuma()" type="button" class="btn btn-raised btn-primary" id="enviaSuma1" style="display: none">Continuar</button>
 
 
     </fieldset>
@@ -263,9 +274,9 @@
         <form class="form-group form-horizontal ">
         <fieldset>
         <legend>Cuestionario 2</legend>
-        <button onclick="nxtQ2()" type="button" class="btn btn-raised btn-primary">enviar</button>
+        
 
-        <div class="form-group is-empty" id="q1a" style="display: none">
+        <div class="form-group is-empty" id="q1a" >
         <h4>1. Presto mucha atención a los sentimientos.</h4>
         <div class="radio radio-primary"><label><input type="radio" name="v1" value="1"> Nunca<span class="circle"></span><span class="check"></span></label></div>
         <div class="radio radio-primary"><label><input type="radio" name="v1" value="2"> Raramente<span class="circle"></span><span class="check"></span></label></div>
@@ -481,15 +492,63 @@
         <div class="radio radio-primary"><label><input type="radio" name="v24" value="5"> Muy frecuente mente<span class="circle"></span><span class="check"></span></label></div>
         </div>
 
-        
-        <button onclick="enviarSuma2()" type="button" class="btn btn-raised btn-primary">enviar</button>
+        <button onclick="nxtQ2()" type="button" id="nxtbtn2" class="btn btn-raised btn-primary">Siguiente</button>
+
+        <button onclick="partes()" type="button" id="enviarSuma2" class="btn btn-raised btn-primary" style="display: none">Continuar</button>
+
 </fieldset>
     </form>
     </section>
 
+    <section id="sendform" class="well bs-component" style="display: none">
+        <form method="post" id="andsend" class="form-group form-horizontal ">
+        <fieldset>
+        <legend>Datos Finales</legend>
+        
+        <div class="form-group is-empty" >
+        <h4>1. Sexo.</h4>
+        <div class="radio radio-primary"><label><input type="radio" name="sexo" value="mujer"> Mujer<span class="circle"></span><span class="check"></span></label></div>
+        <div class="radio radio-primary"><label><input type="radio" name="sexo" value="hombre"> Hombre<span class="circle"></span><span class="check"></span></label></div>
+        </div>
+        
+        <div class="form-group is-empty" >
+        <h4>2. Edad</h4>
+        <div class="input"><input type="number" name="edad" placeholder="edad"></div>
+        </div>
+
+        <div class="form-group is-empty" >
+        <h4>3. Estado Civil</h4>
+        <div class="input"><input type="text" name="estadocivil" placeholder="Estado Civil"></div>
+        </div>
+
+        <div class="form-group is-empty" >
+        <h4>4. Ocupación</h4>
+        <div class="input"><input type="text" name="gradodeestudios" placeholder="Ocupación"></div>
+        </div>
+
+        <div class="form-group is-empty" >
+        <h4>5. Nacionalidad</h4>
+        <div class="input"><input type="text" name="nacionalidad" placeholder="Nacionalidad"></div>
+        </div>
+
+        <div class="form-group is-empty" >
+        <h4 style="display: none">Evaluaciones</h4>
+        <div class="input"><input type="text" id="eval1" name="eval1" style="display: none"></div>
+        <div class="input"><input type="text" id="eval2" name="eval2" style="display: none"></div>
+        </div>
+
+        <button onclick="enviaResultado()" type="button" class="btn btn-raised btn-primary">Terminar</button>
+        
+
+
+    </fieldset>
+    </form>
+    <div id="#respuesta"></div>
+    </section>
+
     
     </section>
-    <section id="slider" style="display: block">
+    <section id="slider" style="display: none">
                
     </section>
 
@@ -504,14 +563,8 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script src="js/material.min.js"></script>
         <script src="js/ripples.min.js"></script>
-        <script src="js/responsiveslides.min.js"></script>
         <script src="js/valida.js"></script>
-        <script>
-          $(function() {
-            $(".rslides").responsiveSlides();
-          });
-        </script>
-
+        
         
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
