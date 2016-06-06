@@ -880,7 +880,7 @@ function valida1(){
         comprencion = (v9+v10+v11+v12+v13+v14+v15+v16+v17+v18);
         regulacion = (v19+v20+v21+v22+v23+v24);
         
-            alert("Reproduce el Video en Pantalla");
+            alert("Reproduce el Video en Pantalla Completa");
             eval1="Precepcion: "+ percepcion + "\nComprencion: "+ comprencion + "\nRegulacion: "+ regulacion+"";
             $("#quizz1").css("display", "none");
             $("#slider").css("display", "block");
