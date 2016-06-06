@@ -18,11 +18,11 @@ function iniciar () {
 
 function fotos() {
     //setTimeout(visible2(), 28000);
-    var tmp = 400;
+    var tmp = 200;
     for(i =0; i<=241; i++){
     setTimeout("foto"+i+"();", tmp);
     console.log("entre "+i);
-    tmp+=400;
+    tmp+=200;
     }
     
 }
@@ -880,11 +880,11 @@ function valida1(){
         comprencion = (v9+v10+v11+v12+v13+v14+v15+v16+v17+v18);
         regulacion = (v19+v20+v21+v22+v23+v24);
         
-            alert("Presta atencion a las siguientes imagenes");
+            alert("Reproduce el Video en Pantalla");
             eval1="Precepcion: "+ percepcion + "\nComprencion: "+ comprencion + "\nRegulacion: "+ regulacion+"";
             $("#quizz1").css("display", "none");
             $("#slider").css("display", "block");
-            fotos();
+            //fotos();
         }
 
 function partes(){
@@ -917,7 +917,7 @@ function partes(){
         comprencion2 = (vv9+vv10+vv11+vv12+vv13+vv14+vv15+vv16+vv17+vv18);
         regulacion2 = (vv19+vv20+vv21+vv22+vv23+vv24);
         
-            alert("Precepcion: "+ percepcion2 + "\nComprencion: "+ comprencion2 + "\nRegulacion: "+ regulacion2);
+            //alert("Precepcion: "+ percepcion2 + "\nComprencion: "+ comprencion2 + "\nRegulacion: "+ regulacion2);
             eval2= "Precepcion: "+ percepcion2 + "\nComprencion: "+ comprencion2 + "\nRegulacion: "+ regulacion2+"";
             $("#quizz2").css("display", "none");
             $("#sendform").css("display", "block");
@@ -928,7 +928,8 @@ function enviaResultado(){
     document.getElementById('eval1').value = eval1;
     document.getElementById('eval2').value = eval2;
 
-    alert(" "+eval1+" "+eval2+"");
+    $("#sendform").css("display", "none");
+    alert("Esto es todo, Gracias por tu tiempo!!");
 
     var url = "http://artickone.esy.es/dame-datos.php"; // El script a dónde se realizará la petición.
 
@@ -939,7 +940,9 @@ function enviaResultado(){
            success: function(data)
            {
                $("#respuesta").html(data); // Mostrar la respuestas del script PHP.
+               
            }
          });
     return false; // Evitar ejecutar el submit del formulario.
+    
 }
